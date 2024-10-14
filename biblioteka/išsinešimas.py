@@ -4,10 +4,10 @@ def __init__(self, kiekis):
      self.kiekis = kiekis
 
 def pasiskolinti_knyga(self, title):
-        for book in self.knygos:
-            if book.title == title:
-                if book.kiekis > 0:
-                    book.kiekis -= 1
+        for knyga in self.knygos:
+            if knyga.title == title:
+                if knyga.kiekis > 0:
+                    knyga.kiekis -= 1
                     print(f"Knyga '{title}' pasiimta išsinešimui.")
                     return
                 else:
@@ -19,14 +19,14 @@ def parodyti_knygas(self):
         if not self.knygos:
             print("Biblioteka tuščia.")
             return
-        for book in self.knygos:
-            print(book)
+        for knyga in self.knygos:
+            print(knyga)
 
 
-library = Library()
-library.pasiskolinti_knyga("Knyga 1")
+biblioteka = Biblioteka()
+biblioteka.pasiskolinti_knyga("Knyga 1")
 
-def isaugoti_issinestas(library, filename='library.pkl'):
+def isaugoti_issinestas(biblioteka, filename='library.pkl'):
     with open(filename, 'wb') as file:
-            pickle.dump(library, file)
-            print(f'Library saved to {filename}')
+            pickle.dump(biblioteka, file)
+            print(f'Biblioteka isaugota {filename}')
