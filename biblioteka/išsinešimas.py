@@ -1,6 +1,6 @@
 import biblioteka.prideti_knyga as pk
 
-def __init__(self, kiekis)
+def __init__(self, kiekis):
      self.kiekis = kiekis
 
 def pasiskolinti_knyga(self, title):
@@ -25,3 +25,8 @@ def parodyti_knygas(self):
 
 library = Library()
 library.pasiskolinti_knyga("Knyga 1")
+
+def isaugoti_issinestas(library, filename='library.pkl'):
+    with open(filename, 'wb') as file:
+            pickle.dump(library, file)
+            print(f'Library saved to {filename}')
