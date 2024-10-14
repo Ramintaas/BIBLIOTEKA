@@ -7,6 +7,7 @@ class Knyga:
         self.pavadinimas = pavadinimas
         self.isleidimo_metai=isleidimo_metai
         self.zanras = zanras
+        
 
     def __repr__(self):
         return f"Knyga('{self.autorius}', '{self.pavadinimas}', {self.isleidimo_metai}, '{self.zanras}')"
@@ -25,12 +26,11 @@ class Biblioteka:
         self.knygos.append(nauja_knyga)
         print(f"Knyga '{nauja_knyga.pavadinimas}' pridėta į biblioteką.")
 
-
     def visos_knygos(self):
         if not self.knygos:
             print("knygu nera")
         else:
-            print("\nVisos bibliotekos knygos:")
+            print("\n visos bibliotekos knygos:")
             for knyga in self.knygos:
                 print(knyga)
 
@@ -38,6 +38,13 @@ class Biblioteka:
         with open(failo_pavadinimas, 'wb') as failas:
             pickle.dump(self.knygos, failas)
         print(f"Knygos išsaugotos faile '{failo_pavadinimas}'.")
+
+mano_biblioteka=Biblioteka()
+
+mano_biblioteka.prideti_knyga("Mazasis Princas", "Exiuperi", 1943, "Romanas")
+mano_biblioteka.prideti_knyga("Haris Poteris", "J.K.Rowling", 2011, "Romanas")
+
+mano_biblioteka.visos_knygos()
 
 
 
