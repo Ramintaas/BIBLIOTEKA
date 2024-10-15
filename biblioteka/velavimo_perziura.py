@@ -12,8 +12,14 @@ def veluojancios_knygos(knygos):
 
     return veluojancios_knygos
 
+knygos = [
+    {"title": "knyga 1", "grazinimo data": "2024-10-11"},  # knygu pavyzdys, sarasas
+    {"title": "knyga 2", "grazinimo data": "2024-09-12"},
+    {"title": "knyga 3", "grazinimo data": "2024-10-15"}
+]
 
-pavelavimas = rasti_veluojancias_knygas(veluojancios_knygos) # Iskviečiame funkciją
+
+pavelavimas = veluojancios_knygos(knygos) # Iskviečiame funkciją
 if pavelavimas:
     print("Vėluojančios knygos:", pavelavimas)
 else:

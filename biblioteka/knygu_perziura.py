@@ -1,11 +1,11 @@
-import biblioteka.prideti_knyga as bk
+from prideti_knyga import Biblioteka
 
 def patikrinti_prieinamuma(biblioteka):
-    title = input("Ivesti knyga: ")
+    pavadinimas = input("Ivesti knyga: ")
     found = False
     
     for knyga in biblioteka:
-        if knyga.title.lower() == title.lower():
+        if knyga.pavadinimas.lower() == pavadinimas.lower():
             if knyga.available:
                 print("Knyga prienama.")
             else:
@@ -18,7 +18,3 @@ def patikrinti_prieinamuma(biblioteka):
 
          
 
-def knygu_perziurejimas(self, failo_pavadinimas):
-        with open(failo_pavadinimas, 'wb') as failas:
-            pickle.dump(self.knygos, failas)
-        print(f"Knygos išsaugotos faile '{failo_pavadinimas}'.")   
