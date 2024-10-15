@@ -15,6 +15,13 @@ class Knyga:
 class Biblioteka:
     def __init__(self):
         self.knygos = []
+
+    def atidaryti_biblioteka(self, failo_pavadinimas = "pirmas.pcl"):
+        with open(failo_pavadinimas, 'rb') as failas:
+            self.knygos=pickle.load(failas)
+        print(f"biblioteka atidaryta is failo '{failo_pavadinimas}'.")
+        return self
+
         
     def prideti_knyga(self):
         autorius = input("Įveskite autoriaus vardą: ")
@@ -34,15 +41,20 @@ class Biblioteka:
             for knyga in self.knygos:
                 print(knyga)
 
-    def issaugoti_knygas(self, failo_pavadinimas):
+    def issaugoti_knygas(self, failo_pavadinimas = "pirmas.pcl"):
         with open(failo_pavadinimas, 'wb') as failas:
             pickle.dump(self.knygos, failas)
         print(f"Knygos išsaugotos faile '{failo_pavadinimas}'.")
+
+    def pasalinti_knyga(self, knyga):
+        self.knygos.remove(knyga)
+
 
 mano_biblioteka=Biblioteka()
 
 mano_biblioteka.prideti_knyga("Mazasis Princas", "Exiuperi", 1943, "Romanas")
 mano_biblioteka.prideti_knyga("Haris Poteris", "J.K.Rowling", 2011, "Romanas")
+mano_biblioteka.issaugoti_knygas()
 
 mano_biblioteka.visos_knygos()
 
