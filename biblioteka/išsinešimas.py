@@ -1,4 +1,4 @@
-import biblioteka.prideti_knyga as pk
+from prideti_knyga import Biblioteka
 
 def __init__(self, kiekis):
      self.kiekis = kiekis
@@ -21,12 +21,10 @@ def parodyti_knygas(self):
             return
         for knyga in self.knygos:
             print(knyga)
-
+            
+if __name__=="__main__":
+        mano_biblioteka=Biblioteka().atidaryti_biblioteka()
 
 biblioteka = Biblioteka()
 biblioteka.pasiskolinti_knyga("Knyga 1")
 
-def isaugoti_issinestas(biblioteka, filename='library.pkl'):
-    with open(filename, 'wb') as file:
-            pickle.dump(biblioteka, file)
-            print(f'Biblioteka isaugota {filename}')

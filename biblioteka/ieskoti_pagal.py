@@ -1,4 +1,4 @@
-import biblioteka.prideti_knyga as bp
+from prideti_knyga import Biblioteka
 
 
 def ieskoti_pagal_pavadinima(self, pavadinimas):
@@ -25,10 +25,6 @@ mano_biblioteka=Biblioteka()
 mano_biblioteka.ieskoti_pagal_pavadinima("Haris Poteris")
 mano_biblioteka.ieskoti_pagal_autoriu("Balys Sruoga")
 
-def isaugoti_pagal(biblioteka, filename='library.pkl'):
-    with open(filename, 'wb') as file:
-        pickle.dump(library, file)
-        print(f'Library saved to {filename}')
 
 
         
