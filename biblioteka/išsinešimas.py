@@ -1,30 +1,14 @@
-from prideti_knyga import Biblioteka
+from biblioteka import Biblioteka, Knyga
+from skaitytojo_kortele import Skaitytojo_kortele, Naudotojas
 
-def __init__(self, kiekis):
-     self.kiekis = kiekis
 
-def pasiskolinti_knyga(self, title):
-        for knyga in self.knygos:
-            if knyga.title == title:
-                if knyga.kiekis > 0:
-                    knyga.kiekis -= 1
-                    print(f"Knyga '{title}' pasiimta išsinešimui.")
-                    return
-                else:
-                    print(f"Knyga '{title}' knygos neprieinama")
-                    return
-        print(f"Knyga '{title}' nerasta bibliotekoje.")
-
-def parodyti_knygas(self):
-        if not self.knygos:
-            print("Biblioteka tuščia.")
-            return
-        for knyga in self.knygos:
-            print(knyga)
             
 if __name__=="__main__":
-        mano_biblioteka=Biblioteka().atidaryti_biblioteka()
+    mano_biblioteka=Biblioteka().atidaryti_biblioteka()
 
-biblioteka = Biblioteka()
-biblioteka.pasiskolinti_knyga("Knyga 1")
+    mano_biblioteka.visos_knygos()
+    mano_biblioteka.perziureti_korteles()
+    mano_biblioteka.pasiskolinti_knyga("Mazasis Princas", "5555", "2024-10-14")
+    mano_biblioteka.visos_knygos()
+    mano_biblioteka.issaugoti_biblioteka()
 

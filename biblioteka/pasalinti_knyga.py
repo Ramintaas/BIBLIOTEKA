@@ -1,5 +1,5 @@
-import pickle
-from prideti_knyga import Biblioteka
+
+from biblioteka import Biblioteka, Knyga
 
 def pasalinti_knyga(library):
     if not library:
@@ -10,6 +10,7 @@ def pasalinti_knyga(library):
     found = False
     
     for knyga in library.knygos:
+        
         if knyga.pavadinimas.lower() == pavadinimas.lower(): #palyginam ar tai ka ivede vartotojaS YRA vienodas tekstas.
 
             library.pasalinti_knyga(knyga)
@@ -20,11 +21,11 @@ def pasalinti_knyga(library):
     if not found:
         print(f'Knygos"{pavadinimas}" nerasta bibliotekoje.')
 
-    if __name__=="__main__":
-        mano_biblioteka=Biblioteka().atidaryti_biblioteka()
+if __name__=="__main__":
+    mano_biblioteka=Biblioteka().atidaryti_biblioteka()
 
     pasalinti_knyga(mano_biblioteka)
-    mano_biblioteka.issaugoti_knygas()
+    mano_biblioteka.issaugoti_biblioteka()
 
 
 

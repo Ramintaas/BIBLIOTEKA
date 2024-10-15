@@ -1,62 +1,18 @@
-import pickle
-from datetime import datetime
 
-class Knyga:
-    def __init__(self, autorius, pavadinimas, isleidimo_metai, zanras):
-        self.autorius = autorius
-        self.pavadinimas = pavadinimas
-        self.isleidimo_metai=isleidimo_metai
-        self.zanras = zanras
-        
-
-    def __repr__(self):
-        return f"Knyga('{self.autorius}', '{self.pavadinimas}', {self.isleidimo_metai}, '{self.zanras}')"
-    
-class Biblioteka:
-    def __init__(self):
-        self.knygos = []
-
-    def atidaryti_biblioteka(self, failo_pavadinimas = "pirmas.pcl"):
-        with open(failo_pavadinimas, 'rb') as failas:
-            self.knygos=pickle.load(failas)
-        print(f"biblioteka atidaryta is failo '{failo_pavadinimas}'.")
-        return self
-
-        
-    def prideti_knyga(self):
-        autorius = input("Įveskite autoriaus vardą: ")
-        pavadinimas = input("Įveskite knygos pavadinimą: ")
-        isleidimo_metai = int(input("Įveskite išleidimo metus: "))
-        zanras = input("Įveskite žanrą: ")
-
-        nauja_knyga = Knyga(autorius, pavadinimas, isleidimo_metai, zanras)
-        self.knygos.append(nauja_knyga)
-        print(f"Knyga '{nauja_knyga.pavadinimas}' pridėta į biblioteką.")
-
-    def visos_knygos(self):
-        if not self.knygos:
-            print("knygu nera")
-        else:
-            print("\n visos bibliotekos knygos:")
-            for knyga in self.knygos:
-                print(knyga)
-
-    def issaugoti_knygas(self, failo_pavadinimas = "pirmas.pcl"):
-        with open(failo_pavadinimas, 'wb') as failas:
-            pickle.dump(self.knygos, failas)
-        print(f"Knygos išsaugotos faile '{failo_pavadinimas}'.")
-
-    def pasalinti_knyga(self, knyga):
-        self.knygos.remove(knyga)
+from biblioteka import Biblioteka, Knyga
 
 
-mano_biblioteka=Biblioteka()
+ 
 
-mano_biblioteka.prideti_knyga("Mazasis Princas", "Exiuperi", 1943, "Romanas")
-mano_biblioteka.prideti_knyga("Haris Poteris", "J.K.Rowling", 2011, "Romanas")
-mano_biblioteka.issaugoti_knygas()
+if __name__=="__main__":
 
-mano_biblioteka.visos_knygos()
+    mano_biblioteka=Biblioteka()
+
+    mano_biblioteka.prideti_knyga(Knyga({"pavadinimas":"Mazasis Princas", "autorius":"Exiuperi", "isleidimo_metai":"1943", "zanras":"Romanas","kiekis":2}))
+    mano_biblioteka.prideti_knyga(Knyga({"pavadinimas":"Haris Poteris", "autorius":"J.K.Rowling", "isleidimo_metai":"2011", "zanras":"Romanas","kiekis":5}))
+    mano_biblioteka.issaugoti_biblioteka()
+
+    mano_biblioteka.visos_knygos()
 
 
 
