@@ -9,9 +9,10 @@ def pasalinti_knyga(library):
     pavadinimas = input("Ivesti knyga kuria norim istrinti: ")
     found = False
     
-    for knyga in library:
-        if knyga.lower() == pavadinimas.lower():
-            library.remove(knyga)
+    for knyga in library.knygos:
+        if knyga.pavadinimas.lower() == pavadinimas.lower(): #palyginam ar tai ka ivede vartotojaS YRA vienodas tekstas.
+
+            library.pasalinti_knyga(knyga)
             print(f'"{knyga}" knyga istrinta.')
             found = True
             break
@@ -19,10 +20,11 @@ def pasalinti_knyga(library):
     if not found:
         print(f'Knygos"{pavadinimas}" nerasta bibliotekoje.')
 
-def isaugoti_library(library, filename='library.pkl'):
-    with open(filename, 'wb') as file:
-        pickle.dump(library, file)
-        print(f'Library saved to {filename}')
+    if __name__=="__main__":
+        mano_biblioteka=Biblioteka().atidaryti_biblioteka()
+
+    pasalinti_knyga(mano_biblioteka)
+    mano_biblioteka.issaugoti_knygas()
 
 
 
