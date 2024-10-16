@@ -49,6 +49,7 @@ class Biblioteka:
         if not jau_egzistuoja:
             self.korteles.append(nauja_kortele)
             print(f"kortele {nauja_kortele.id} iterpta")
+        return not jau_egzistuoja
     
 
     def atidaryti_biblioteka(self, failo_pavadinimas = "pirmas.pcl"):
@@ -83,7 +84,7 @@ class Biblioteka:
         pasiskolinta=False
         kortele_rasta=False
         for knyga in self.knygos:
-            if knyga.pavadinimas == pavadinimas:
+            if knyga.pavadinimas.lower() == pavadinimas.lower():
                 if knyga.kiekis > 0:
                     for kortele in self.korteles:
                         if kortele.id==korteles_id:

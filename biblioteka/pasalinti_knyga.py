@@ -2,7 +2,7 @@
 from biblioteka import Biblioteka, Knyga
 
 def pasalinti_knyga(library):
-    if not library:
+    if not library.knygos:
         print("Biblioteka tuscia.")
         return
 
@@ -15,6 +15,7 @@ def pasalinti_knyga(library):
 
             library.pasalinti_knyga(knyga)
             print(f'"{knyga}" knyga istrinta.')
+            library.issaugoti_biblioteka()
             found = True
             break
     

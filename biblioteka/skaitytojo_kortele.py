@@ -43,7 +43,7 @@ class Skaitytojo_kortele:
         for pasiskolinta_knyga in self.pasiskolintos_knygos:
             if pasiskolinta_knyga.grazinti_atributus()==knyga.grazinti_atributus():
                 self.pasiskolintos_knygos.remove(pasiskolinta_knyga)
-                print(f"knyga {self.pavadinimas} grazinta")
+                print(f"knyga {knyga.pavadinimas} grazinta")
                 grazinta=True
         if not grazinta:
             print(f"{self.priskirtas_naudotojas} knygos {knyga.pavadinimas} nepasiskolino")
